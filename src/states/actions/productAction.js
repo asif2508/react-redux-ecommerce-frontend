@@ -1,4 +1,13 @@
+import axios from "axios";
 import { actionTypes } from "../constants/actionTypes"
+
+export const fetchProducts = async () =>{
+    const response = await axios.get("/products");
+    return {
+        type: actionTypes.SET_PRODUCTS,
+        payload: response,
+    };
+};
 
 export const setProducts = (products) =>{
     return {
